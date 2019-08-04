@@ -1,0 +1,27 @@
+#!/usr/bin/env python
+
+import webapp2 # Required for 
+
+
+class Home(webapp2.RequestHandler):
+	def get(self):
+		self.response.write("Hello, PVPython Viewers\n")
+
+class get_EUR_Price(webapp2.RequestHandler):
+	def get(self):
+		import pv_foriegn_price as pvfp
+		self.response.write(pvfp.get_EUR()+"\n")
+
+app = webapp2.WSGIApplication([
+	(r'/', Home),
+	(r'/EUR', get_EUR_Price)
+	])
+
+def main():
+	from paste import httpserver # Importing http server
+	#httpserver.serve(app, host='54.212.237.211', port='8080')
+	httpserver.serve(app, host='127.0.0.1', port='8080')
+
+
+if __name__ == "__main__":
+	main()

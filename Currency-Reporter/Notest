@@ -1,0 +1,3 @@
+0 * * * * python3 /home/pi/Documents/src_git/PVPython/Scripts/Euro_reporter.py
+SCRIPTS='/home/pi/Scripts/'
+PATH=$PATH:$SCRIPTS
