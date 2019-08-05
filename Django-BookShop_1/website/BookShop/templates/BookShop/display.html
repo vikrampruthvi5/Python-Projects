@@ -1,0 +1,28 @@
+<!--Displays the books in cards format-->
+{% load catch_isbn %}
+
+
+<div class="col-md-4">
+    <div class="card mb-4 shadow-sm">
+        <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail" alt="Thumbnail [100%x225]"
+             style="height: 225px; width: 100%; display: block;" src={% get_cover book.ISBN %} data-holder-rendered="true">
+        <div class="card-body">
+
+            <h5 style="color:#013243">{% get_title book.ISBN %}</h5>
+            <hr>
+            <h7 class="card-text" style="color: #67809F;">ISBN : {{ book.ISBN }}</h7><br>
+            <h7 class="card-text" style="color: #67809F;">author : {% get_authors book.ISBN %}</h7><br>
+            <h7 class="card-text" style="color: #67809F;">Year : {% get_year book.ISBN %}</h7><br>
+            <h7 class="card-text" style="color: #67809F;">Price : ₹ {{ book.price }}</h7><br>
+            <h7 class="card-text" style="color: #F1A9A0;">{{ book.count }} left</h7>
+
+            <hr>
+            <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                    <button type="button" class="btn btn-sm btn-outline-secondary">Like</button>
+                    <button type="button" class="btn btn-sm btn-outline-secondary">Add to cart</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
